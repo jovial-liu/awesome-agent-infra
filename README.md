@@ -21,6 +21,7 @@ The filter is simple: every entry should be useful from a terminal, produce a po
 | Release | [packguard](https://github.com/jovial-liu/packguard) | Preflights the exact npm tarball | HTML / SARIF |
 | Authorization | [toolgate](https://github.com/jovial-liu/toolgate) | Unit-tests AI tool-call policy | JSON / Markdown / HTML |
 | Optimization | [prompttax](https://github.com/jovial-liu/prompttax) | Measures instruction and MCP schema context costs | JSON / Markdown / HTML |
+| Privacy | [ignorematrix](https://github.com/jovial-liu/ignorematrix) | Finds cross-assistant sensitive-path policy gaps | JSON / Markdown / HTML |
 
 The same list is available as [`catalog.json`](catalog.json) for tools and scripts.
 
@@ -34,6 +35,7 @@ I need to review an MCP server first         → mcpdoctor
 I need to scan repo instructions for attacks  → promptshield
 I need to test what an agent may do           → toolgate
 I need to measure context before coding       → prompttax
+I need to compare assistant privacy policies  → ignorematrix
 I need a reviewable PR artifact              → diffstory
 I need to know what npm will publish         → packguard
 ```

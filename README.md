@@ -18,6 +18,7 @@ The filter is simple: every entry should be useful from a terminal, produce a po
 | Observability | [agentflight](https://github.com/jovial-liu/agentflight) | Records commands and worktree deltas | HTML / JSON |
 | Protocol | [mcpdoctor](https://github.com/jovial-liu/mcpdoctor) | Smoke-tests MCP stdio servers | HTML / SARIF |
 | Security | [promptshield](https://github.com/jovial-liu/promptshield) | Scans agent-readable files for injection signals | SARIF / HTML |
+| Release | [packguard](https://github.com/jovial-liu/packguard) | Preflights the exact npm tarball | HTML / SARIF |
 
 The same list is available as [`catalog.json`](catalog.json) for tools and scripts.
 
@@ -30,6 +31,7 @@ I need to see what an agent actually did     → agentflight
 I need to review an MCP server first         → mcpdoctor
 I need to scan repo instructions for attacks  → promptshield
 I need a reviewable PR artifact              → diffstory
+I need to know what npm will publish         → packguard
 ```
 
 All listed commands are examples; inspect each repository's current README and permissions before running it on sensitive code.

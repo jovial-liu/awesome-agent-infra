@@ -12,6 +12,7 @@
     { "slug": "agentbrief", "category": "handoff", "repo": "https://github.com/jovial-liu/agentbrief", "oneLiner": "Create a safe, bounded handoff brief from a Git worktree", "command": "npx --yes github:jovial-liu/agentbrief#v1 --help", "artifact": "Markdown / JSON" },
     { "slug": "agentflight", "category": "observability", "repo": "https://github.com/jovial-liu/agentflight", "oneLiner": "Record command output, duration, exit status, and worktree delta", "command": "npx --yes github:jovial-liu/agentflight#v1 --help", "artifact": "HTML / JSON" },
     { "slug": "mcpdoctor", "category": "protocol", "repo": "https://github.com/jovial-liu/mcpdoctor", "oneLiner": "Smoke-test an MCP stdio server before an agent uses it", "command": "npx --yes github:jovial-liu/mcpdoctor#v1 --help", "artifact": "HTML / SARIF" },
-    { "slug": "promptshield", "category": "security", "repo": "https://github.com/jovial-liu/promptshield", "oneLiner": "Scan agent-readable files for prompt injection and hidden Unicode", "command": "npx --yes github:jovial-liu/promptshield#v1 --help", "artifact": "SARIF / HTML" }
+    { "slug": "promptshield", "category": "security", "repo": "https://github.com/jovial-liu/promptshield", "oneLiner": "Scan agent-readable files for prompt injection and hidden Unicode", "command": "npx --yes github:jovial-liu/promptshield#v1 --help", "artifact": "SARIF / HTML" },
+    { "slug": "packguard", "category": "release", "repo": "https://github.com/jovial-liu/packguard", "oneLiner": "Inspect the exact npm tarball before publish", "command": "npx --yes github:jovial-liu/packguard#v1 --help", "artifact": "HTML / SARIF" }
   ]
 }

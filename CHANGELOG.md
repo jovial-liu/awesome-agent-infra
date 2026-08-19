@@ -2,7 +2,7 @@
 
 ## 0.1.2
 
-- Add `toolgate` to the catalog and quick-start map.
+- Add `toolgate` and `prompttax` to the catalog and quick-start map.
 
 ## 0.1.1
 

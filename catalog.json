@@ -14,6 +14,7 @@
     { "slug": "mcpdoctor", "category": "protocol", "repo": "https://github.com/jovial-liu/mcpdoctor", "oneLiner": "Smoke-test an MCP stdio server before an agent uses it", "command": "npx --yes github:jovial-liu/mcpdoctor#v1 --help", "artifact": "HTML / SARIF" },
     { "slug": "promptshield", "category": "security", "repo": "https://github.com/jovial-liu/promptshield", "oneLiner": "Scan agent-readable files for prompt injection and hidden Unicode", "command": "npx --yes github:jovial-liu/promptshield#v1 --help", "artifact": "SARIF / HTML" },
     { "slug": "packguard", "category": "release", "repo": "https://github.com/jovial-liu/packguard", "oneLiner": "Inspect the exact npm tarball before publish", "command": "npx --yes github:jovial-liu/packguard#v1 --help", "artifact": "HTML / SARIF" },
-    { "slug": "toolgate", "category": "authorization", "repo": "https://github.com/jovial-liu/toolgate", "oneLiner": "Unit-test which AI tool calls are allowed, denied, or require approval", "command": "npx --yes github:jovial-liu/toolgate#v1 --help", "artifact": "JSON / Markdown / HTML" }
+    { "slug": "toolgate", "category": "authorization", "repo": "https://github.com/jovial-liu/toolgate", "oneLiner": "Unit-test which AI tool calls are allowed, denied, or require approval", "command": "npx --yes github:jovial-liu/toolgate#v1 --help", "artifact": "JSON / Markdown / HTML" },
+    { "slug": "prompttax", "category": "optimization", "repo": "https://github.com/jovial-liu/prompttax", "oneLiner": "Measure coding-agent instruction and MCP schema context costs", "command": "npx --yes github:jovial-liu/prompttax#v1 --help", "artifact": "JSON / Markdown / HTML" }
   ]
 }

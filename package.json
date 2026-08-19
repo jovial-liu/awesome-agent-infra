@@ -1,0 +1,8 @@
+{
+  "name": "awesome-agent-infra-catalog",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": { "test": "node --test", "validate": "node scripts/validate.mjs" },
+  "license": "MIT"
+}

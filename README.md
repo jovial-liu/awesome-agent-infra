@@ -1,0 +1,56 @@
+# awesome-agent-infra
+
+An opinionated, machine-readable map of small open-source tools for building, debugging, observing, handing off, and securing AI-agent workflows.
+
+The filter is simple: every entry should be useful from a terminal, produce a portable artifact when practical, state its safety model, and be easy to try without signing up for a service.
+
+## The map
+
+| Category | Project | What it does | Artifact |
+| --- | --- | --- | --- |
+| Configuration | [envstitch](https://github.com/jovial-liu/envstitch) | Maps env vars across a polyglot repository | SARIF / `.env.example` |
+| Documentation | [mdpulse](https://github.com/jovial-liu/mdpulse) | Executes Markdown contracts and link checks | JUnit / SARIF |
+| Debugging | [errorparcel](https://github.com/jovial-liu/errorparcel) | Packages a sanitized reproducible failure | Markdown / JSON |
+| Debugging | [termframe](https://github.com/jovial-liu/termframe) | Captures terminal output as a portable frame | SVG / HTML |
+| Review | [diffstory](https://github.com/jovial-liu/diffstory) | Turns a Git diff into an offline PR story | HTML / Markdown |
+| Security | [actionmap](https://github.com/jovial-liu/actionmap) | Maps risky GitHub Actions execution paths | HTML / SARIF |
+| Handoff | [agentbrief](https://github.com/jovial-liu/agentbrief) | Makes a bounded, redacted worktree handoff | Markdown / JSON |
+| Observability | [agentflight](https://github.com/jovial-liu/agentflight) | Records commands and worktree deltas | HTML / JSON |
+| Protocol | [mcpdoctor](https://github.com/jovial-liu/mcpdoctor) | Smoke-tests MCP stdio servers | HTML / SARIF |
+| Security | [promptshield](https://github.com/jovial-liu/promptshield) | Scans agent-readable files for injection signals | SARIF / HTML |
+
+The same list is available as [`catalog.json`](catalog.json) for tools and scripts.
+
+## Pick a starting point
+
+```text
+I need to understand a failing command       → errorparcel, termframe
+I need to hand work to another agent         → agentbrief
+I need to see what an agent actually did     → agentflight
+I need to review an MCP server first         → mcpdoctor
+I need to scan repo instructions for attacks  → promptshield
+I need a reviewable PR artifact              → diffstory
+```
+
+All listed commands are examples; inspect each repository's current README and permissions before running it on sensitive code.
+
+## Design principles
+
+- Local-first by default: no telemetry or hidden upload in the catalog itself.
+- Portable outputs: Markdown, JSON, HTML, SVG, SARIF, or other files that survive a chat window.
+- Small interfaces: one command should demonstrate the value.
+- Honest safety language: static findings are review prompts, not magic proof.
+- Machine-readable metadata: the list should be useful to humans and agents.
+
+## Contributing
+
+Run:
+
+```bash
+npm run validate
+npm test
+```
+
+Then add one complete entry to `catalog.json` and the matching README table row. Explain why it belongs and what it does with workspace data.
+
+MIT licensed.

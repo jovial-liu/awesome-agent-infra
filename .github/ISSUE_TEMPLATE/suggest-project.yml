@@ -1,0 +1,19 @@
+name: Suggest a project
+description: Suggest one focused open-source agent infrastructure tool.
+title: "suggestion: "
+labels: [curation]
+body:
+  - type: input
+    id: repo
+    attributes:
+      label: Repository URL
+      placeholder: https://github.com/owner/repo
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it belongs
+      description: Include a copy-paste command, artifact, license, and data/network behavior.
+    validations:
+      required: true

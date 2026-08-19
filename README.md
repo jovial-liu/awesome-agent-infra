@@ -19,6 +19,7 @@ The filter is simple: every entry should be useful from a terminal, produce a po
 | Protocol | [mcpdoctor](https://github.com/jovial-liu/mcpdoctor) | Smoke-tests MCP stdio servers | HTML / SARIF |
 | Security | [promptshield](https://github.com/jovial-liu/promptshield) | Scans agent-readable files for injection signals | SARIF / HTML |
 | Release | [packguard](https://github.com/jovial-liu/packguard) | Preflights the exact npm tarball | HTML / SARIF |
+| Authorization | [toolgate](https://github.com/jovial-liu/toolgate) | Unit-tests AI tool-call policy | JSON / Markdown / HTML |
 
 The same list is available as [`catalog.json`](catalog.json) for tools and scripts.
 
@@ -30,6 +31,7 @@ I need to hand work to another agent         → agentbrief
 I need to see what an agent actually did     → agentflight
 I need to review an MCP server first         → mcpdoctor
 I need to scan repo instructions for attacks  → promptshield
+I need to test what an agent may do           → toolgate
 I need a reviewable PR artifact              → diffstory
 I need to know what npm will publish         → packguard
 ```

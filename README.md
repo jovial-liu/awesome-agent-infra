@@ -14,7 +14,7 @@ stillgreen  [verification]  keyword: stale, keyword: green, keyword: test, categ
   try: npx --yes github:jovial-liu/stillgreen#v1 --help
 ```
 
-The zero-dependency `agent-infra` CLI also supports `list`, `show`, `categories`, and `--json` for agent workflows.
+The zero-dependency `agent-infra` CLI also supports `list`, `show`, `categories`, ordered `recipes`, and `--json` for agent workflows.
 
 ## The map
 
@@ -52,6 +52,21 @@ npx --yes github:jovial-liu/awesome-agent-infra#v1 find "safe handoff" --json
 ```
 
 Search is deterministic and offline after installation. It uses the catalog's human-reviewed categories and keywords; no query is uploaded and no model call is made.
+
+## Run a recipe
+
+Single tools solve narrow problems; recipes put them in a defensible order:
+
+```console
+$ npx --yes github:jovial-liu/awesome-agent-infra#v1 recipe mcp-release
+Review, compose, and fixture-test MCP servers
+
+1. mcpdoctor — Negotiate each server and snapshot its advertised contract
+2. toolclash — Find collisions before combining multiple tool catalogs
+3. mcpstub — Turn the reviewed contract into a deterministic client fixture
+```
+
+Available recipes cover secure agent handoff, MCP release, npm/CLI release, context hygiene, and coding-agent evaluation. Use `recipes --json` or `recipe <name> --json` when another agent will consume the workflow.
 
 ## Pick a starting point
 

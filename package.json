@@ -1,6 +1,6 @@
 {
   "name": "awesome-agent-infra-catalog",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "A searchable, machine-readable map of local-first AI-agent infrastructure tools",
   "private": true,
   "type": "module",

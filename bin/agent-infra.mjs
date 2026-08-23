@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-import { findProject, loadCatalog, searchCatalog } from '../src/index.mjs';
+import { findProject, findRecipe, loadCatalog, searchCatalog } from '../src/index.mjs';
 
-const VERSION = '0.2.0';
+const VERSION = '0.3.0';
 const HELP = `agent-infra ${VERSION}
 
 Search a local-first map of small AI-agent infrastructure tools.
@@ -11,6 +11,8 @@ Usage:
   agent-infra show <project> [--json]
   agent-infra list [--category NAME] [--json]
   agent-infra categories
+  agent-infra recipes [--json]
+  agent-infra recipe <name> [--json]
   agent-infra --version
 
 Examples:
@@ -18,6 +20,7 @@ Examples:
   agent-infra find "MCP tool collision" --limit 3
   agent-infra show stillgreen
   agent-infra list --category security
+  agent-infra recipe secure-handoff
 `;
 
 function parseOptions(args) {
@@ -45,12 +48,30 @@ async function main() {
   if (!command || ['help', '--help', '-h'].includes(command)) { console.log(HELP); return; }
   if (['--version', '-v'].includes(command)) { console.log(VERSION); return; }
   const catalog = await loadCatalog();
+  if (command === 'recipes') {
+    const options = parseOptions(args);
+    if (options.words.length) throw new Error('recipes takes no positional arguments');
+    if (options.json) console.log(JSON.stringify(catalog.recipes ?? [], null, 2));
+    else for (const recipe of catalog.recipes ?? []) console.log(`${recipe.slug.padEnd(18)} ${recipe.title}`);
+    return;
+  }
   if (command === 'categories') {
     const counts = Object.entries(catalog.projects.reduce((result, project) => { result[project.category] = (result[project.category] ?? 0) + 1; return result; }, {})).sort();
     for (const [category, count] of counts) console.log(`${category.padEnd(16)} ${count}`);
     return;
   }
   const options = parseOptions(args);
+  if (command === 'recipe') {
+    if (options.words.length !== 1) throw new Error('recipe needs one recipe slug');
+    const recipe = findRecipe(catalog, options.words[0]);
+    if (!recipe) { console.error(`Unknown recipe: ${options.words[0]}`); process.exitCode = 1; return; }
+    if (options.json) console.log(JSON.stringify(recipe, null, 2));
+    else {
+      console.log(`${recipe.title}\n`);
+      recipe.steps.forEach((step, index) => { const project = findProject(catalog, step.project); console.log(`${index + 1}. ${step.project} — ${step.why}\n   ${project.command}`); });
+    }
+    return;
+  }
   if (command === 'find') {
     const query = options.words.join(' ');
     if (!query) throw new Error('find needs a problem description');

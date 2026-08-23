@@ -5,7 +5,7 @@ import { execFile } from 'node:child_process';
 import path from 'node:path';
 import { promisify } from 'node:util';
 import { fileURLToPath } from 'node:url';
-import { searchCatalog } from '../src/index.mjs';
+import { findRecipe, searchCatalog } from '../src/index.mjs';
 
 const run = promisify(execFile);
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -18,6 +18,14 @@ test('catalog has unique, runnable project entries', async () => {
   assert.ok(catalog.projects.every((project) => project.command.includes('#v1')));
   assert.ok(catalog.projects.every((project) => Array.isArray(project.keywords) && project.keywords.length >= 3));
   assert.ok(catalog.projects.some((project) => project.category === 'security'));
+});
+
+test('recipes are ordered and reference existing projects', async () => {
+  const catalog = JSON.parse(await fs.readFile(new URL('../catalog.json', import.meta.url), 'utf8'));
+  const recipe = findRecipe(catalog, 'mcp-release');
+  assert.deepEqual(recipe.steps.map((step) => step.project), ['mcpdoctor', 'toolclash', 'mcpstub']);
+  const slugs = new Set(catalog.projects.map((project) => project.slug));
+  assert.ok(catalog.recipes.flatMap((item) => item.steps).every((step) => slugs.has(step.project)));
 });
 
 test('find ranks exact problems and useful expansions', async () => {
@@ -35,4 +43,7 @@ test('CLI returns human and machine-readable recommendations', async () => {
   assert.equal(JSON.parse(machine.stdout).category, 'verification');
   const categories = await run(process.execPath, [cli, 'categories']);
   assert.match(categories.stdout, /security/);
+  const recipe = await run(process.execPath, [cli, 'recipe', 'secure-handoff']);
+  assert.match(recipe.stdout, /1\. promptshield/);
+  assert.match(recipe.stdout, /3\. agentbrief/);
 });

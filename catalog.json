@@ -22,5 +22,52 @@
     { "slug": "stillgreen", "category": "verification", "keywords": ["stale tests", "green", "proof", "receipt", "worktree", "freshness"], "repo": "https://github.com/jovial-liu/stillgreen", "oneLiner": "Prove that a command passed on the exact Git worktree you still have", "command": "npx --yes github:jovial-liu/stillgreen#v1 --help", "artifact": "JSON receipt" },
     { "slug": "mcpstub", "category": "testing", "keywords": ["mcp", "mock server", "fixture", "stub", "client testing", "offline"], "repo": "https://github.com/jovial-liu/mcpstub", "oneLiner": "Generate and serve deterministic MCP fixtures from tool contracts", "command": "npx --yes github:jovial-liu/mcpstub#v1 --help", "artifact": "JSON fixture / JSONL calls" },
     { "slug": "clidrift", "category": "compatibility", "keywords": ["cli", "breaking change", "help", "commands", "options", "semver", "snapshot"], "repo": "https://github.com/jovial-liu/clidrift", "oneLiner": "Snapshot CLI help contracts and detect breaking command-line drift", "command": "npx --yes github:jovial-liu/clidrift#v1 --help", "artifact": "JSON / Markdown" }
+  ],
+  "recipes": [
+    {
+      "slug": "secure-handoff",
+      "title": "Ship an agent change with fresh, bounded evidence",
+      "steps": [
+        { "project": "promptshield", "why": "Scan agent-readable repository text before trusting its instructions" },
+        { "project": "stillgreen", "why": "Bind the final validation command to the exact delivered worktree" },
+        { "project": "agentbrief", "why": "Create a redacted, portable handoff artifact" }
+      ]
+    },
+    {
+      "slug": "mcp-release",
+      "title": "Review, compose, and fixture-test MCP servers",
+      "steps": [
+        { "project": "mcpdoctor", "why": "Negotiate each server and snapshot its advertised contract" },
+        { "project": "toolclash", "why": "Find collisions before combining multiple tool catalogs" },
+        { "project": "mcpstub", "why": "Turn the reviewed contract into a deterministic client fixture" }
+      ]
+    },
+    {
+      "slug": "npm-release",
+      "title": "Keep a CLI's docs, package, and interface releasable",
+      "steps": [
+        { "project": "mdpulse", "why": "Execute README examples and documentation contracts" },
+        { "project": "packguard", "why": "Inspect the exact npm tarball before publish" },
+        { "project": "clidrift", "why": "Gate breaking command and option changes" }
+      ]
+    },
+    {
+      "slug": "context-hygiene",
+      "title": "Reduce risky and wasteful coding-agent context",
+      "steps": [
+        { "project": "ignorematrix", "why": "Find sensitive paths exposed by inconsistent ignore files" },
+        { "project": "promptshield", "why": "Scan the remaining agent-readable text for injection signals" },
+        { "project": "prompttax", "why": "Measure instruction and MCP schema context cost" }
+      ]
+    },
+    {
+      "slug": "agent-evaluation",
+      "title": "Build evidence-backed coding-agent evaluations",
+      "steps": [
+        { "project": "commitcase", "why": "Mine real bug-fix commits into reproducible cases" },
+        { "project": "stillgreen", "why": "Bind evaluator checks to exact candidate worktrees" },
+        { "project": "diffstory", "why": "Render candidate changes as a portable review artifact" }
+      ]
+    }
   ]
 }

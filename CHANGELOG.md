@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.0
+
+- Add five ordered, machine-readable recipes for handoff, MCP, npm, context, and evaluation workflows.
+- Add `recipes` and `recipe <name>` CLI commands with JSON output.
+
 ## 0.2.2
 
 - Add `clidrift` for versioned CLI help contracts and breaking-change gates.

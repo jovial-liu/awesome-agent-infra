@@ -56,3 +56,7 @@ export function searchCatalog(catalog, query, { limit = 5 } = {}) {
 export function findProject(catalog, slug) {
   return catalog.projects.find((project) => project.slug === slug) ?? null;
 }
+
+export function findRecipe(catalog, slug) {
+  return (catalog.recipes ?? []).find((recipe) => recipe.slug === slug) ?? null;
+}

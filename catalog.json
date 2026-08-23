@@ -16,6 +16,7 @@
     { "slug": "packguard", "category": "release", "repo": "https://github.com/jovial-liu/packguard", "oneLiner": "Inspect the exact npm tarball before publish", "command": "npx --yes github:jovial-liu/packguard#v1 --help", "artifact": "HTML / SARIF" },
     { "slug": "toolgate", "category": "authorization", "repo": "https://github.com/jovial-liu/toolgate", "oneLiner": "Unit-test which AI tool calls are allowed, denied, or require approval", "command": "npx --yes github:jovial-liu/toolgate#v1 --help", "artifact": "JSON / Markdown / HTML" },
     { "slug": "prompttax", "category": "optimization", "repo": "https://github.com/jovial-liu/prompttax", "oneLiner": "Measure coding-agent instruction and MCP schema context costs", "command": "npx --yes github:jovial-liu/prompttax#v1 --help", "artifact": "JSON / Markdown / HTML" },
-    { "slug": "ignorematrix", "category": "privacy", "repo": "https://github.com/jovial-liu/ignorematrix", "oneLiner": "Find sensitive paths exposed by inconsistent coding-assistant ignore policies", "command": "npx --yes github:jovial-liu/ignorematrix#v1 --help", "artifact": "JSON / Markdown / HTML" }
+    { "slug": "ignorematrix", "category": "privacy", "repo": "https://github.com/jovial-liu/ignorematrix", "oneLiner": "Find sensitive paths exposed by inconsistent coding-assistant ignore policies", "command": "npx --yes github:jovial-liu/ignorematrix#v1 --help", "artifact": "JSON / Markdown / HTML" },
+    { "slug": "commitcase", "category": "evaluation", "repo": "https://github.com/jovial-liu/commitcase", "oneLiner": "Turn real bug-fix commits into reproducible coding-agent eval cases", "command": "npx --yes github:jovial-liu/commitcase#v1 --help", "artifact": "JSON / Markdown / Patch" }
   ]
 }

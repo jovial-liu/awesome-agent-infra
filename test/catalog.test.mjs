@@ -34,6 +34,7 @@ test('find ranks exact problems and useful expansions', async () => {
   assert.equal(searchCatalog(catalog, 'MCP tool collision')[0].project.slug, 'toolclash');
   assert.equal(searchCatalog(catalog, 'npm package publish')[0].project.slug, 'packguard');
   assert.equal(searchCatalog(catalog, 'prompt injection attack')[0].project.slug, 'promptshield');
+  assert.equal(searchCatalog(catalog, 'missing tool result trace')[0].project.slug, 'traceproof');
 });
 
 test('CLI returns human and machine-readable recommendations', async () => {
@@ -46,4 +47,7 @@ test('CLI returns human and machine-readable recommendations', async () => {
   const recipe = await run(process.execPath, [cli, 'recipe', 'secure-handoff']);
   assert.match(recipe.stdout, /1\. promptshield/);
   assert.match(recipe.stdout, /3\. agentbrief/);
+  const runReview = await run(process.execPath, [cli, 'recipe', 'agent-run-review']);
+  assert.match(runReview.stdout, /2\. traceproof/);
+  assert.match(runReview.stdout, /4\. diffstory/);
 });

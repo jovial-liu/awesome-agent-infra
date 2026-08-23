@@ -11,6 +11,7 @@
     { "slug": "actionmap", "category": "security", "keywords": ["github actions", "workflow", "ci", "injection", "permissions"], "repo": "https://github.com/jovial-liu/actionmap", "oneLiner": "Map GitHub Actions workflows and flag risky execution paths", "command": "npx --yes github:jovial-liu/actionmap#v1 --help", "artifact": "HTML / SARIF" },
     { "slug": "agentbrief", "category": "handoff", "keywords": ["handoff", "transfer", "worktree", "redaction", "context"], "repo": "https://github.com/jovial-liu/agentbrief", "oneLiner": "Create a safe, bounded handoff brief from a Git worktree", "command": "npx --yes github:jovial-liu/agentbrief#v1 --help", "artifact": "Markdown / JSON" },
     { "slug": "agentflight", "category": "observability", "keywords": ["record", "trace", "commands", "worktree delta", "audit"], "repo": "https://github.com/jovial-liu/agentflight", "oneLiner": "Record command output, duration, exit status, and worktree delta", "command": "npx --yes github:jovial-liu/agentflight#v1 --help", "artifact": "HTML / JSON" },
+    { "slug": "traceproof", "category": "observability", "keywords": ["trace integrity", "tool calls", "missing results", "duplicate side effects", "openai", "anthropic", "mcp", "sarif"], "repo": "https://github.com/jovial-liu/traceproof", "oneLiner": "Prove that AI-agent tool calls and results form a complete, coherent trace", "command": "npx --yes github:jovial-liu/traceproof#v1 --help", "artifact": "JSON / Markdown / HTML / SARIF" },
     { "slug": "mcpdoctor", "category": "protocol", "keywords": ["mcp", "server", "stdio", "contract", "health", "sarif"], "repo": "https://github.com/jovial-liu/mcpdoctor", "oneLiner": "Negotiate and contract-test modern or legacy MCP stdio servers", "command": "npx --yes github:jovial-liu/mcpdoctor#v1 --help", "artifact": "HTML / SARIF" },
     { "slug": "promptshield", "category": "security", "keywords": ["prompt injection", "hidden unicode", "agent instructions", "attack", "exfiltration"], "repo": "https://github.com/jovial-liu/promptshield", "oneLiner": "Scan agent-readable files for prompt injection and hidden Unicode", "command": "npx --yes github:jovial-liu/promptshield#v1 --help", "artifact": "SARIF / HTML" },
     { "slug": "packguard", "category": "release", "keywords": ["npm", "package", "publish", "tarball", "supply chain"], "repo": "https://github.com/jovial-liu/packguard", "oneLiner": "Inspect the exact npm tarball before publish", "command": "npx --yes github:jovial-liu/packguard#v1 --help", "artifact": "HTML / SARIF" },
@@ -58,6 +59,16 @@
         { "project": "ignorematrix", "why": "Find sensitive paths exposed by inconsistent ignore files" },
         { "project": "promptshield", "why": "Scan the remaining agent-readable text for injection signals" },
         { "project": "prompttax", "why": "Measure instruction and MCP schema context cost" }
+      ]
+    },
+    {
+      "slug": "agent-run-review",
+      "title": "Review an agent run from actions to delivered code",
+      "steps": [
+        { "project": "agentflight", "why": "Capture commands, exits, timing, and worktree deltas as the run happens" },
+        { "project": "traceproof", "why": "Check that tool calls and results are paired without suspicious repeats" },
+        { "project": "stillgreen", "why": "Bind the final test command to the exact delivered worktree" },
+        { "project": "diffstory", "why": "Package the resulting code changes for portable review" }
       ]
     },
     {

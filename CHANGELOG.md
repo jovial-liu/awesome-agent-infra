@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.0
+
+- Add `traceproof` for local tool-call trace integrity checks across OpenAI, Anthropic, and MCP formats.
+- Add the `agent-run-review` recipe, connecting run capture, trace integrity, exact-worktree verification, and diff review.
+
 ## 0.3.1
 
 - Add the public interactive Agent Infra Map for browser-based search, category filters, command copying, and recipe discovery.

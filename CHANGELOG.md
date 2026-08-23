@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.5.0
+
+- Add `falsegreen` for detecting swallowed failures across shell scripts, package scripts, GitHub Actions, GitLab CI, and Makefiles.
+- Add the `github-ci-trust` recipe, connecting false-green scanning, Actions path review, and exact-worktree verification.
+
 ## 0.4.0
 
 - Add `traceproof` for local tool-call trace integrity checks across OpenAI, Anthropic, and MCP formats.

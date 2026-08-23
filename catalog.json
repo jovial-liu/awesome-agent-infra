@@ -12,6 +12,7 @@
     { "slug": "agentbrief", "category": "handoff", "keywords": ["handoff", "transfer", "worktree", "redaction", "context"], "repo": "https://github.com/jovial-liu/agentbrief", "oneLiner": "Create a safe, bounded handoff brief from a Git worktree", "command": "npx --yes github:jovial-liu/agentbrief#v1 --help", "artifact": "Markdown / JSON" },
     { "slug": "agentflight", "category": "observability", "keywords": ["record", "trace", "commands", "worktree delta", "audit"], "repo": "https://github.com/jovial-liu/agentflight", "oneLiner": "Record command output, duration, exit status, and worktree delta", "command": "npx --yes github:jovial-liu/agentflight#v1 --help", "artifact": "HTML / JSON" },
     { "slug": "traceproof", "category": "observability", "keywords": ["trace integrity", "tool calls", "missing results", "duplicate side effects", "openai", "anthropic", "mcp", "sarif"], "repo": "https://github.com/jovial-liu/traceproof", "oneLiner": "Prove that AI-agent tool calls and results form a complete, coherent trace", "command": "npx --yes github:jovial-liu/traceproof#v1 --help", "artifact": "JSON / Markdown / HTML / SARIF" },
+    { "slug": "falsegreen", "category": "reliability", "keywords": ["ci", "swallowed failure", "pipefail", "continue on error", "allow failure", "makefile", "shell", "sarif"], "repo": "https://github.com/jovial-liu/falsegreen", "oneLiner": "Find swallowed failures that make shell scripts and CI pipelines look green", "command": "npx --yes github:jovial-liu/falsegreen#v1 --help", "artifact": "JSON / Markdown / HTML / SARIF" },
     { "slug": "mcpdoctor", "category": "protocol", "keywords": ["mcp", "server", "stdio", "contract", "health", "sarif"], "repo": "https://github.com/jovial-liu/mcpdoctor", "oneLiner": "Negotiate and contract-test modern or legacy MCP stdio servers", "command": "npx --yes github:jovial-liu/mcpdoctor#v1 --help", "artifact": "HTML / SARIF" },
     { "slug": "promptshield", "category": "security", "keywords": ["prompt injection", "hidden unicode", "agent instructions", "attack", "exfiltration"], "repo": "https://github.com/jovial-liu/promptshield", "oneLiner": "Scan agent-readable files for prompt injection and hidden Unicode", "command": "npx --yes github:jovial-liu/promptshield#v1 --help", "artifact": "SARIF / HTML" },
     { "slug": "packguard", "category": "release", "keywords": ["npm", "package", "publish", "tarball", "supply chain"], "repo": "https://github.com/jovial-liu/packguard", "oneLiner": "Inspect the exact npm tarball before publish", "command": "npx --yes github:jovial-liu/packguard#v1 --help", "artifact": "HTML / SARIF" },
@@ -78,6 +79,15 @@
         { "project": "commitcase", "why": "Mine real bug-fix commits into reproducible cases" },
         { "project": "stillgreen", "why": "Bind evaluator checks to exact candidate worktrees" },
         { "project": "diffstory", "why": "Render candidate changes as a portable review artifact" }
+      ]
+    },
+    {
+      "slug": "github-ci-trust",
+      "title": "Find false-green paths and prove the delivered check",
+      "steps": [
+        { "project": "falsegreen", "why": "Find syntax that swallows shell and CI failures" },
+        { "project": "actionmap", "why": "Map permissions, triggers, and risky execution paths in GitHub Actions" },
+        { "project": "stillgreen", "why": "Bind the final blocking validation to the exact delivered worktree" }
       ]
     }
   ]

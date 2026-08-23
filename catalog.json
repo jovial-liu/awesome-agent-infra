@@ -1,6 +1,6 @@
 {
   "schema": "awesome-agent-infra/v1",
-  "updated": "2026-08-20",
+  "updated": "2026-08-23",
   "principles": ["local-first", "portable-artifacts", "explicit-safety", "zero-dependency-where-possible"],
   "projects": [
     { "slug": "envstitch", "category": "configuration", "repo": "https://github.com/jovial-liu/envstitch", "oneLiner": "Map environment variables across a polyglot repository without exposing values", "command": "npx --yes github:jovial-liu/envstitch#v1 --help", "artifact": "SARIF / .env.example" },
@@ -18,6 +18,7 @@
     { "slug": "prompttax", "category": "optimization", "repo": "https://github.com/jovial-liu/prompttax", "oneLiner": "Measure coding-agent instruction and MCP schema context costs", "command": "npx --yes github:jovial-liu/prompttax#v1 --help", "artifact": "JSON / Markdown / HTML" },
     { "slug": "ignorematrix", "category": "privacy", "repo": "https://github.com/jovial-liu/ignorematrix", "oneLiner": "Find sensitive paths exposed by inconsistent coding-assistant ignore policies", "command": "npx --yes github:jovial-liu/ignorematrix#v1 --help", "artifact": "JSON / Markdown / HTML" },
     { "slug": "commitcase", "category": "evaluation", "repo": "https://github.com/jovial-liu/commitcase", "oneLiner": "Turn real bug-fix commits into reproducible coding-agent eval cases", "command": "npx --yes github:jovial-liu/commitcase#v1 --help", "artifact": "JSON / Markdown / Patch" },
-    { "slug": "toolclash", "category": "composition", "repo": "https://github.com/jovial-liu/toolclash", "oneLiner": "Find naming, contract, and context collisions across MCP tool catalogs", "command": "npx --yes github:jovial-liu/toolclash#v1 --help", "artifact": "JSON / Markdown / HTML" }
+    { "slug": "toolclash", "category": "composition", "repo": "https://github.com/jovial-liu/toolclash", "oneLiner": "Find naming, contract, and context collisions across MCP tool catalogs", "command": "npx --yes github:jovial-liu/toolclash#v1 --help", "artifact": "JSON / Markdown / HTML" },
+    { "slug": "stillgreen", "category": "verification", "repo": "https://github.com/jovial-liu/stillgreen", "oneLiner": "Prove that a command passed on the exact Git worktree you still have", "command": "npx --yes github:jovial-liu/stillgreen#v1 --help", "artifact": "JSON receipt" }
   ]
 }

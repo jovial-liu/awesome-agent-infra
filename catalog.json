@@ -13,6 +13,7 @@
     { "slug": "agentflight", "category": "observability", "keywords": ["record", "trace", "commands", "worktree delta", "audit"], "repo": "https://github.com/jovial-liu/agentflight", "oneLiner": "Record command output, duration, exit status, and worktree delta", "command": "npx --yes github:jovial-liu/agentflight#v1 --help", "artifact": "HTML / JSON" },
     { "slug": "traceproof", "category": "observability", "keywords": ["trace integrity", "tool calls", "missing results", "duplicate side effects", "openai", "anthropic", "mcp", "sarif"], "repo": "https://github.com/jovial-liu/traceproof", "oneLiner": "Prove that AI-agent tool calls and results form a complete, coherent trace", "command": "npx --yes github:jovial-liu/traceproof#v1 --help", "artifact": "JSON / Markdown / HTML / SARIF" },
     { "slug": "falsegreen", "category": "reliability", "keywords": ["ci", "swallowed failure", "pipefail", "continue on error", "allow failure", "makefile", "shell", "sarif"], "repo": "https://github.com/jovial-liu/falsegreen", "oneLiner": "Find swallowed failures that make shell scripts and CI pipelines look green", "command": "npx --yes github:jovial-liu/falsegreen#v1 --help", "artifact": "JSON / Markdown / HTML / SARIF" },
+    { "slug": "hookmatrix", "category": "reliability", "keywords": ["git hooks", "worktree", "hookspath", "husky", "pre-commit", "routing", "sarif"], "repo": "https://github.com/jovial-liu/hookmatrix", "oneLiner": "Prove which Git hooks are actually active across every worktree", "command": "npx --yes github:jovial-liu/hookmatrix#v1 --help", "artifact": "JSON / Markdown / HTML / SARIF" },
     { "slug": "mcpdoctor", "category": "protocol", "keywords": ["mcp", "server", "stdio", "contract", "health", "sarif"], "repo": "https://github.com/jovial-liu/mcpdoctor", "oneLiner": "Negotiate and contract-test modern or legacy MCP stdio servers", "command": "npx --yes github:jovial-liu/mcpdoctor#v1 --help", "artifact": "HTML / SARIF" },
     { "slug": "promptshield", "category": "security", "keywords": ["prompt injection", "hidden unicode", "agent instructions", "attack", "exfiltration"], "repo": "https://github.com/jovial-liu/promptshield", "oneLiner": "Scan agent-readable files for prompt injection and hidden Unicode", "command": "npx --yes github:jovial-liu/promptshield#v1 --help", "artifact": "SARIF / HTML" },
     { "slug": "packguard", "category": "release", "keywords": ["npm", "package", "publish", "tarball", "supply chain"], "repo": "https://github.com/jovial-liu/packguard", "oneLiner": "Inspect the exact npm tarball before publish", "command": "npx --yes github:jovial-liu/packguard#v1 --help", "artifact": "HTML / SARIF" },
@@ -88,6 +89,15 @@
         { "project": "falsegreen", "why": "Find syntax that swallows shell and CI failures" },
         { "project": "actionmap", "why": "Map permissions, triggers, and risky execution paths in GitHub Actions" },
         { "project": "stillgreen", "why": "Bind the final blocking validation to the exact delivered worktree" }
+      ]
+    },
+    {
+      "slug": "worktree-proof",
+      "title": "Verify a worktree's local gates before handing it off",
+      "steps": [
+        { "project": "hookmatrix", "why": "Prove Git hooks resolve inside the correct worktree and are executable" },
+        { "project": "stillgreen", "why": "Bind the final validation command to that exact worktree" },
+        { "project": "agentbrief", "why": "Create a redacted handoff with bounded repository context" }
       ]
     }
   ]

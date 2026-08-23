@@ -2,7 +2,7 @@
 
 An opinionated, machine-readable map of small open-source tools for building, debugging, observing, handing off, and securing AI-agent workflows.
 
-**[Open the interactive Agent Infra Map →](https://jovial-liu.github.io/agent-infra-map/)** — search all 21 tools, filter by category, and copy commands or complete recipes from the browser.
+**[Open the interactive Agent Infra Map →](https://jovial-liu.github.io/agent-infra-map/)** — search all 22 tools, filter by category, and copy commands or complete recipes from the browser.
 
 The filter is simple: every entry should be useful from a terminal, produce a portable artifact when practical, state its safety model, and be easy to try without signing up for a service.
 
@@ -32,6 +32,7 @@ The zero-dependency `agent-infra` CLI also supports `list`, `show`, `categories`
 | Observability | [agentflight](https://github.com/jovial-liu/agentflight) | Records commands and worktree deltas | HTML / JSON |
 | Observability | [traceproof](https://github.com/jovial-liu/traceproof) | Proves tool calls and results form a complete, coherent trace | JSON / Markdown / HTML / SARIF |
 | Reliability | [falsegreen](https://github.com/jovial-liu/falsegreen) | Finds swallowed failures that make automation look green | JSON / Markdown / HTML / SARIF |
+| Reliability | [hookmatrix](https://github.com/jovial-liu/hookmatrix) | Proves which Git hooks are active in every worktree | JSON / Markdown / HTML / SARIF |
 | Protocol | [mcpdoctor](https://github.com/jovial-liu/mcpdoctor) | Smoke-tests MCP stdio servers | HTML / SARIF |
 | Security | [promptshield](https://github.com/jovial-liu/promptshield) | Scans agent-readable files for injection signals | SARIF / HTML |
 | Release | [packguard](https://github.com/jovial-liu/packguard) | Preflights the exact npm tarball | HTML / SARIF |
@@ -70,7 +71,7 @@ Review, compose, and fixture-test MCP servers
 3. mcpstub — Turn the reviewed contract into a deterministic client fixture
 ```
 
-Available recipes cover secure agent handoff, MCP release, npm/CLI release, context hygiene, agent-run review, coding-agent evaluation, and GitHub CI trust. Use `recipes --json` or `recipe <name> --json` when another agent will consume the workflow.
+Available recipes cover secure agent handoff, MCP release, npm/CLI release, context hygiene, agent-run review, coding-agent evaluation, GitHub CI trust, and worktree proof. Use `recipes --json` or `recipe <name> --json` when another agent will consume the workflow.
 
 ## Pick a starting point
 
@@ -80,6 +81,7 @@ I need to hand work to another agent         → agentbrief
 I need to see what an agent actually did     → agentflight
 I need to verify an agent tool trace          → traceproof
 I need to find CI failures that pass anyway   → falsegreen
+I need to prove hooks work in agent worktrees → hookmatrix
 I need to review an MCP server first         → mcpdoctor
 I need to scan repo instructions for attacks  → promptshield
 I need to test what an agent may do           → toolgate

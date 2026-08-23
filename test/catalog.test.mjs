@@ -36,6 +36,7 @@ test('find ranks exact problems and useful expansions', async () => {
   assert.equal(searchCatalog(catalog, 'prompt injection attack')[0].project.slug, 'promptshield');
   assert.equal(searchCatalog(catalog, 'missing tool result trace')[0].project.slug, 'traceproof');
   assert.equal(searchCatalog(catalog, 'swallowed CI failure pipefail')[0].project.slug, 'falsegreen');
+  assert.equal(searchCatalog(catalog, 'git hook worktree routing')[0].project.slug, 'hookmatrix');
 });
 
 test('CLI returns human and machine-readable recommendations', async () => {
@@ -54,4 +55,7 @@ test('CLI returns human and machine-readable recommendations', async () => {
   const ciTrust = await run(process.execPath, [cli, 'recipe', 'github-ci-trust']);
   assert.match(ciTrust.stdout, /1\. falsegreen/);
   assert.match(ciTrust.stdout, /3\. stillgreen/);
+  const worktreeProof = await run(process.execPath, [cli, 'recipe', 'worktree-proof']);
+  assert.match(worktreeProof.stdout, /1\. hookmatrix/);
+  assert.match(worktreeProof.stdout, /3\. agentbrief/);
 });

@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.6.0
+
+- Add `hookmatrix` for proving effective Git hook routing across linked worktrees.
+- Add the `worktree-proof` recipe, connecting hook routing, exact-worktree validation, and safe handoff.
+
 ## 0.5.0
 
 - Add `falsegreen` for detecting swallowed failures across shell scripts, package scripts, GitHub Actions, GitLab CI, and Makefiles.

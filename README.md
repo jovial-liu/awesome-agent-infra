@@ -23,6 +23,7 @@ The filter is simple: every entry should be useful from a terminal, produce a po
 | Optimization | [prompttax](https://github.com/jovial-liu/prompttax) | Measures instruction and MCP schema context costs | JSON / Markdown / HTML |
 | Privacy | [ignorematrix](https://github.com/jovial-liu/ignorematrix) | Finds cross-assistant sensitive-path policy gaps | JSON / Markdown / HTML |
 | Evaluation | [commitcase](https://github.com/jovial-liu/commitcase) | Turns bug-fix commits into coding-agent eval cases | JSON / Markdown / Patch |
+| Composition | [toolclash](https://github.com/jovial-liu/toolclash) | Finds cross-server MCP tool collisions | JSON / Markdown / HTML |
 
 The same list is available as [`catalog.json`](catalog.json) for tools and scripts.
 
@@ -38,6 +39,7 @@ I need to test what an agent may do           → toolgate
 I need to measure context before coding       → prompttax
 I need to compare assistant privacy policies  → ignorematrix
 I need evals from my own repository history   → commitcase
+I need to combine MCP servers safely          → toolclash
 I need a reviewable PR artifact              → diffstory
 I need to know what npm will publish         → packguard
 ```

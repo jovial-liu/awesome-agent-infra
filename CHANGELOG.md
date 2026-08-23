@@ -2,7 +2,7 @@
 
 ## 0.1.2
 
-- Add `toolgate`, `prompttax`, `ignorematrix`, and `commitcase` to the catalog and quick-start map.
+- Add `toolgate`, `prompttax`, `ignorematrix`, `commitcase`, and `toolclash` to the catalog and quick-start map.
 
 ## 0.1.1
 

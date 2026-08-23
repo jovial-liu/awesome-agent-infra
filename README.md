@@ -4,6 +4,18 @@ An opinionated, machine-readable map of small open-source tools for building, de
 
 The filter is simple: every entry should be useful from a terminal, produce a portable artifact when practical, state its safety model, and be easy to try without signing up for a service.
 
+Describe the problem and get a ranked starting point—without installing anything permanently:
+
+```console
+$ npx --yes github:jovial-liu/awesome-agent-infra#v1 find "stale green tests"
+stillgreen  [verification]  keyword: stale, keyword: green, keyword: test, category: verification
+  Prove that a command passed on the exact Git worktree you still have
+  https://github.com/jovial-liu/stillgreen
+  try: npx --yes github:jovial-liu/stillgreen#v1 --help
+```
+
+The zero-dependency `agent-infra` CLI also supports `list`, `show`, `categories`, and `--json` for agent workflows.
+
 ## The map
 
 | Category | Project | What it does | Artifact |
@@ -27,6 +39,17 @@ The filter is simple: every entry should be useful from a terminal, produce a po
 | Verification | [stillgreen](https://github.com/jovial-liu/stillgreen) | Proves a command passed on the exact worktree still present | JSON receipt |
 
 The same list is available as [`catalog.json`](catalog.json) for tools and scripts.
+
+## Search from the terminal
+
+```bash
+npx --yes github:jovial-liu/awesome-agent-infra#v1 find "MCP tool collision"
+npx --yes github:jovial-liu/awesome-agent-infra#v1 show mcpdoctor
+npx --yes github:jovial-liu/awesome-agent-infra#v1 list --category security
+npx --yes github:jovial-liu/awesome-agent-infra#v1 find "safe handoff" --json
+```
+
+Search is deterministic and offline after installation. It uses the catalog's human-reviewed categories and keywords; no query is uploaded and no model call is made.
 
 ## Pick a starting point
 

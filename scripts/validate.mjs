@@ -5,6 +5,7 @@ if (catalog.schema !== 'awesome-agent-infra/v1' || !Array.isArray(catalog.projec
 const seen = new Set();
 for (const project of catalog.projects) {
   for (const key of ['slug', 'category', 'repo', 'oneLiner', 'command', 'artifact']) if (!project[key]) throw new Error(`${project.slug || 'unknown'} missing ${key}`);
+  if (!Array.isArray(project.keywords) || project.keywords.length < 3 || project.keywords.some((keyword) => typeof keyword !== 'string' || !keyword.trim())) throw new Error(`${project.slug || 'unknown'} needs at least three keywords`);
   if (seen.has(project.slug)) throw new Error(`duplicate slug: ${project.slug}`);
   seen.add(project.slug);
   if (!/^https:\/\/github\.com\//.test(project.repo)) throw new Error(`${project.slug} is not a GitHub URL`);

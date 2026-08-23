@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.0
+
+- Add the zero-dependency `agent-infra` CLI with `find`, `show`, `list`, and `categories` commands.
+- Add deterministic problem-to-project ranking and machine-readable JSON output.
+- Add human-reviewed search keywords to all catalog entries.
+- Refresh `mcpdoctor` for its modern/legacy protocol diagnostics.
+
 ## 0.1.3
 
 - Add `stillgreen` for exact-worktree test receipts and stale-result detection.

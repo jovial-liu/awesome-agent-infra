@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.2
+
+- Add `clidrift` for versioned CLI help contracts and breaking-change gates.
+
 ## 0.2.1
 
 - Add `mcpstub` for contract-driven, deterministic MCP client fixtures.

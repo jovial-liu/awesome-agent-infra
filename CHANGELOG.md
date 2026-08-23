@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.1
+
+- Add the public interactive Agent Infra Map for browser-based search, category filters, command copying, and recipe discovery.
+
 ## 0.3.0
 
 - Add five ordered, machine-readable recipes for handoff, MCP, npm, context, and evaluation workflows.

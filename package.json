@@ -1,6 +1,6 @@
 {
   "name": "awesome-agent-infra-catalog",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "A searchable, machine-readable map of local-first AI-agent infrastructure tools",
   "private": true,
   "type": "module",
@@ -17,5 +17,5 @@
   "keywords": ["ai-agents", "developer-tools", "mcp", "security", "awesome-list"],
   "license": "MIT",
   "repository": { "type": "git", "url": "git+https://github.com/jovial-liu/awesome-agent-infra.git" },
-  "homepage": "https://github.com/jovial-liu/awesome-agent-infra#readme"
+  "homepage": "https://jovial-liu.github.io/agent-infra-map/"
 }

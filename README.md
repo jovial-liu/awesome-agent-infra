@@ -2,6 +2,8 @@
 
 An opinionated, machine-readable map of small open-source tools for building, debugging, observing, handing off, and securing AI-agent workflows.
 
+**[Open the interactive Agent Infra Map →](https://jovial-liu.github.io/agent-infra-map/)** — search all 19 tools, filter by category, and copy commands or complete recipes from the browser.
+
 The filter is simple: every entry should be useful from a terminal, produce a portable artifact when practical, state its safety model, and be easy to try without signing up for a service.
 
 Describe the problem and get a ranked starting point—without installing anything permanently:
@@ -40,7 +42,7 @@ The zero-dependency `agent-infra` CLI also supports `list`, `show`, `categories`
 | Testing | [mcpstub](https://github.com/jovial-liu/mcpstub) | Generates deterministic modern/legacy MCP fixture servers | JSON fixture / JSONL calls |
 | Compatibility | [clidrift](https://github.com/jovial-liu/clidrift) | Detects breaking command and option drift from CLI help | JSON / Markdown |
 
-The same list is available as [`catalog.json`](catalog.json) for tools and scripts.
+The same list is available as [`catalog.json`](catalog.json) for tools and scripts, and powers the separate [interactive map](https://github.com/jovial-liu/agent-infra-map).
 
 ## Search from the terminal
 

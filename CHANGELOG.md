@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.1
+
+- Add `mcpstub` for contract-driven, deterministic MCP client fixtures.
+
 ## 0.2.0
 
 - Add the zero-dependency `agent-infra` CLI with `find`, `show`, `list`, and `categories` commands.

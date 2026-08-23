@@ -37,6 +37,7 @@ The zero-dependency `agent-infra` CLI also supports `list`, `show`, `categories`
 | Evaluation | [commitcase](https://github.com/jovial-liu/commitcase) | Turns bug-fix commits into coding-agent eval cases | JSON / Markdown / Patch |
 | Composition | [toolclash](https://github.com/jovial-liu/toolclash) | Finds cross-server MCP tool collisions | JSON / Markdown / HTML |
 | Verification | [stillgreen](https://github.com/jovial-liu/stillgreen) | Proves a command passed on the exact worktree still present | JSON receipt |
+| Testing | [mcpstub](https://github.com/jovial-liu/mcpstub) | Generates deterministic modern/legacy MCP fixture servers | JSON fixture / JSONL calls |
 
 The same list is available as [`catalog.json`](catalog.json) for tools and scripts.
 
@@ -65,6 +66,7 @@ I need to compare assistant privacy policies  → ignorematrix
 I need evals from my own repository history   → commitcase
 I need to combine MCP servers safely          → toolclash
 I need proof the delivered tree is still green → stillgreen
+I need to test an MCP client offline            → mcpstub
 I need a reviewable PR artifact              → diffstory
 I need to know what npm will publish         → packguard
 ```

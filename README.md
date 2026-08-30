@@ -29,6 +29,7 @@ The zero-dependency `agent-infra` CLI also supports `list`, `show`, `categories`
 | Review | [diffstory](https://github.com/jovial-liu/diffstory) | Turns a Git diff into an offline PR story | HTML / Markdown |
 | Security | [actionmap](https://github.com/jovial-liu/actionmap) | Maps risky GitHub Actions execution paths | HTML / SARIF |
 | Handoff | [agentbrief](https://github.com/jovial-liu/agentbrief) | Makes a bounded, redacted worktree handoff | Markdown / JSON |
+| Runtime | [SandBase Harness](https://github.com/sandbaseai/sandbase-harness) | Self-hosted runtime and MCP bridge for persistent, governed agent sessions | MCP tools / audit events |
 | Observability | [agentflight](https://github.com/jovial-liu/agentflight) | Records commands and worktree deltas | HTML / JSON |
 | Observability | [traceproof](https://github.com/jovial-liu/traceproof) | Proves tool calls and results form a complete, coherent trace | JSON / Markdown / HTML / SARIF |
 | Reliability | [falsegreen](https://github.com/jovial-liu/falsegreen) | Finds swallowed failures that make automation look green | JSON / Markdown / HTML / SARIF |

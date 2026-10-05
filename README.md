@@ -2,7 +2,7 @@
 
 An opinionated, machine-readable map of small open-source tools for building, debugging, observing, handing off, and securing AI-agent workflows.
 
-**[Open the interactive Agent Infra Map →](https://jovial-liu.github.io/agent-infra-map/)** — search all 22 tools, filter by category, and copy commands or complete recipes from the browser.
+**[Open the interactive Agent Infra Map →](https://jovial-liu.github.io/agent-infra-map/)** — search tools, filter by category, and copy commands or complete recipes from the browser.
 
 The filter is simple: every entry should be useful from a terminal, produce a portable artifact when practical, state its safety model, and be easy to try without signing up for a service.
 
@@ -43,6 +43,7 @@ The zero-dependency `agent-infra` CLI also supports `list`, `show`, `categories`
 | Composition | [toolclash](https://github.com/jovial-liu/toolclash) | Finds cross-server MCP tool collisions | JSON / Markdown / HTML |
 | Verification | [stillgreen](https://github.com/jovial-liu/stillgreen) | Proves a command passed on the exact worktree still present | JSON receipt |
 | Testing | [mcpstub](https://github.com/jovial-liu/mcpstub) | Generates deterministic modern/legacy MCP fixture servers | JSON fixture / JSONL calls |
+| Knowledge | [Hyperconsciousness](https://github.com/louis030195/hyperconsciousness) | Encrypted local knowledge, device sync and scoped MCP grants (developer alpha) | Signed, encrypted records and blobs |
 | Compatibility | [clidrift](https://github.com/jovial-liu/clidrift) | Detects breaking command and option drift from CLI help | JSON / Markdown |
 
 The same list is available as [`catalog.json`](catalog.json) for tools and scripts, and powers the separate [interactive map](https://github.com/jovial-liu/agent-infra-map).
@@ -105,6 +106,34 @@ All listed commands are examples; inspect each repository's current README and p
 - Small interfaces: one command should demonstrate the value.
 - Honest safety language: static findings are review prompts, not magic proof.
 - Machine-readable metadata: the list should be useful to humans and agents.
+
+## Installation metadata
+
+The v1 schema retains the required string `command`, so existing consumers can
+display or copy it unchanged. Commands are examples; the catalog CLI never runs
+them. Entries without `installation` retain the legacy `#v1` requirement.
+
+Rust source builds use optional `installation` metadata with `type: "rust-source"`,
+a full commit `ref`, a `documentation` URL, and non-empty `platforms` and
+`prerequisites` arrays. Their command must check out that commit and use
+`cargo build --release --locked`. They also require `license`, `status`, and
+`safety`. Unsupported types and incomplete source metadata fail validation.
+This is an additive v1 extension; existing entries and commands are unchanged.
+
+For Hyperconsciousness, run `node bin/agent-infra.mjs show hyperconsciousness`
+to inspect prerequisites, safety and the copyable macOS/Linux build command.
+It needs Rust 1.88.0 via rustup and documented Linux native headers; use a parent
+directory without an existing checkout. Installation writes to `~/.local/bin`
+and can replace an existing `hc`. The command ends with `hc --help`; store
+creation, capture and sync are separate operations. Builds download dependencies
+and execute build scripts. Configured sync can transfer records and blobs; MCP
+recipients can see returned plaintext. Grants do not isolate a process with
+owner-level file/key access. It is a developer alpha with no claimed independent
+security audit or guaranteed backup durability. See its linked source README and
+[security constraints](https://github.com/louis030195/hyperconsciousness/blob/c599921531032b4d59f77c4609c0b6bcc0bb21fa/docs/CONSTRAINTS.md).
+The source recipe was checked against upstream documentation on October 5, 2026;
+a fresh HC build/runtime trial is not claimed. The separate interactive map
+must consume the updated catalog before showing this entry.
 
 ## Contributing
 

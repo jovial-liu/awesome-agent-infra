@@ -40,6 +40,12 @@ function printProject(project, reason = '') {
   console.log(`${project.slug}  [${project.category}]${reason ? `  ${reason}` : ''}`);
   console.log(`  ${project.oneLiner}`);
   console.log(`  ${project.repo}`);
+  if (project.installation) {
+    console.log(`  installation: ${project.installation.type} (${project.installation.platforms.join(', ')})`);
+    for (const prerequisite of project.installation.prerequisites) console.log(`  requires: ${prerequisite}`);
+    console.log(`  docs: ${project.installation.documentation}`);
+    console.log(`  safety: ${project.safety}`);
+  }
   console.log(`  try: ${project.command}`);
 }
 

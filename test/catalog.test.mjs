@@ -1,4 +1,5 @@
 import test from 'node:test';
+import { validateInstallation } from '../src/installation.mjs';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import { execFile } from 'node:child_process';
@@ -15,7 +16,7 @@ test('catalog has unique, runnable project entries', async () => {
   const catalog = JSON.parse(await fs.readFile(new URL('../catalog.json', import.meta.url), 'utf8'));
   assert.equal(catalog.schema, 'awesome-agent-infra/v1');
   assert.equal(new Set(catalog.projects.map((project) => project.slug)).size, catalog.projects.length);
-  assert.ok(catalog.projects.every((project) => project.command.includes('#v1')));
+  for (const project of catalog.projects) assert.doesNotThrow(() => validateInstallation(project));
   assert.ok(catalog.projects.every((project) => Array.isArray(project.keywords) && project.keywords.length >= 3));
   assert.ok(catalog.projects.some((project) => project.category === 'security'));
 });
@@ -58,4 +59,27 @@ test('CLI returns human and machine-readable recommendations', async () => {
   const worktreeProof = await run(process.execPath, [cli, 'recipe', 'worktree-proof']);
   assert.match(worktreeProof.stdout, /1\. hookmatrix/);
   assert.match(worktreeProof.stdout, /3\. agentbrief/);
+});
+
+test('source installation is explicit and rejects incomplete or unpinned entries', async () => {
+  const catalog = JSON.parse(await fs.readFile(new URL('../catalog.json', import.meta.url), 'utf8'));
+  const source = catalog.projects.find((project) => project.slug === 'hyperconsciousness');
+  assert.equal(searchCatalog(catalog, 'encrypted knowledge')[0].project.slug, source.slug);
+  for (const change of [
+    { installation: undefined }, { installation: { ...source.installation, type: 'anything' } },
+    { installation: { ...source.installation, prerequisites: [] } },
+    { installation: { ...source.installation, platforms: [] } },
+    { installation: { ...source.installation, ref: 'main' } },
+    { installation: { ...source.installation, documentation: '' } },
+    { command: 'hc --help' }, { safety: '' }, { license: '' }, { status: '' },
+  ]) assert.throws(() => validateInstallation({ ...source, ...change }));
+  const legacy = catalog.projects.filter((project) => !project.installation);
+  assert.ok(legacy.every((project) => project.command.includes('#v1')));
+  const human = await run(process.execPath, [cli, 'show', source.slug]);
+  assert.match(human.stdout, /installation: rust-source/);
+  assert.match(human.stdout, /requires: Rust/);
+  assert.match(human.stdout, /safety: Source installation/);
+  assert.ok(human.stdout.includes(source.command));
+  const machine = await run(process.execPath, [cli, 'show', source.slug, '--json']);
+  assert.deepEqual(JSON.parse(machine.stdout), source);
 });
